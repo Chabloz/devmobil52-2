@@ -20,7 +20,7 @@ function tickDraw() {
 }
 
 function tickUpdate(dt) {
-  circle.move(dt);
+  circle.update(dt);
 }
 
 MainLoop

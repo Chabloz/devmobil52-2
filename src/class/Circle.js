@@ -8,7 +8,7 @@ export default class Circle {
     this.velocity = velocity;
   }
 
-  move(dt) {
+  update(dt) {
     this.position.x += this.velocity.x * dt;
     this.position.y += this.velocity.y * dt;
   }
