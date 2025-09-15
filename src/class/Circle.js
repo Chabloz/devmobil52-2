@@ -1,7 +1,11 @@
+import Vector2 from './Vector2.js';
+
 export default class Circle {
 
-  // radius, position, color, velocity (Vector2)
   constructor({radius, position, color, velocity}) {
+    if (!position instanceof Vector2) throw new TypeError('position must be a Vector2');
+    if (!velocity instanceof Vector2) throw new TypeError('velocity must be a Vector2');
+
     this.radius = radius;
     this.position = position;
     this.color = color;
