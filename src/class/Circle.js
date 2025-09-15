@@ -10,6 +10,7 @@ export default class Circle {
 
   move(dt) {
     this.position.x += this.velocity.x * dt;
+    this.position.y += this.velocity.y * dt;
   }
 
   draw(ctx) {

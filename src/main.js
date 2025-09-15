@@ -1,4 +1,5 @@
 import Circle from "./class/Circle";
+import MainLoop from "mainloop.js";
 
 const canvas = document.querySelector('canvas');
 canvas.width = canvas.clientWidth;
@@ -6,23 +7,23 @@ canvas.height = canvas.clientHeight;
 const ctx = canvas.getContext('2d');
 
 const circle = new Circle({
-  position : {
-    x: 100,
-    y: 100
-  },
+  position : { x: 100, y: 100 },
   radius: 100,
   color: 'red',
-  velocity: {
-    x: 1,
-    y: 0,
-  }
+  velocity: { x: 0.1, y: 0.1 }
 });
 
-function tick(dt) {
+function tickDraw() {
   canvas.width = canvas.clientWidth;
   canvas.height = canvas.clientHeight;
-  circle.move(dt);
   circle.draw(ctx);
 }
 
-MainLoop.setDraw(tick).start();
+function tickUpdate(dt) {
+  circle.move(dt);
+}
+
+MainLoop
+  .setUpdate(tickUpdate)
+  .setDraw(tickDraw)
+  .start();
