@@ -2,9 +2,8 @@ export default class Keyboard {
 
   constructor() {
     this.keys = new Set();
-    document.body.addEventListener('keypress', e => {
+    document.body.addEventListener('keydown', e => {
       this.keys.add(e.code);
-      console.log(this.keys);
     });
     document.body.addEventListener('keyup', e => {
       this.keys.delete(e.code);
